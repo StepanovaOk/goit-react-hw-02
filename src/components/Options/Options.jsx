@@ -1,9 +1,11 @@
-const Options = () => {
+import App from "../../App";
+
+const Options = ({ updateFeedback }) => {
   return (
     <div>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
     </div>
   );
 };

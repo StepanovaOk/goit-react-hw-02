@@ -12,10 +12,17 @@ function App() {
     bad: 0,
   });
 
+  const updateFeedback = (feedbackType) => {
+    setFeedbackTypes({
+      ...feedbackTypes,
+      [feedbackType]: feedbackTypes[feedbackType] + 1,
+    });
+  };
+
   return (
     <div>
       <Description />
-      <Options />
+      <Options updateFeedback={updateFeedback} />
       <Feedback feedbackTypes={feedbackTypes} />
     </div>
   );
