@@ -30,6 +30,8 @@ function App() {
     });
   };
 
+  const positive = Math.round((feedbackTypes.good / totalFeedback) * 100);
+
   return (
     <div>
       <Description />
@@ -38,7 +40,11 @@ function App() {
         totalFeedback={totalFeedback}
         onReset={onReset}
       />
-      <Feedback feedbackTypes={feedbackTypes} totalFeedback={totalFeedback} />
+      <Feedback
+        feedbackTypes={feedbackTypes}
+        totalFeedback={totalFeedback}
+        positive={positive}
+      />
     </div>
   );
 }

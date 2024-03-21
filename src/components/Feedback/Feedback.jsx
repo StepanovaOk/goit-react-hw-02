@@ -1,6 +1,6 @@
 import App from "../../App";
 
-const Feedback = ({ feedbackTypes, totalFeedback }) => {
+const Feedback = ({ feedbackTypes, totalFeedback, positive }) => {
   if (totalFeedback === 0) {
     return <div>No feedback yet</div>;
   } else {
@@ -9,6 +9,8 @@ const Feedback = ({ feedbackTypes, totalFeedback }) => {
         <p>Good: {feedbackTypes.good}</p>
         <p>Neutral: {feedbackTypes.neutral}</p>
         <p>Bad: {feedbackTypes.bad}</p>
+        <p>Total : {totalFeedback}</p>
+        <p>Positive: {positive}%</p>
       </div>
     );
   }
