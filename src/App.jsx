@@ -12,6 +12,9 @@ function App() {
     bad: 0,
   });
 
+  const totalFeedback =
+    feedbackTypes.good + feedbackTypes.neutral + feedbackTypes.bad;
+
   const updateFeedback = (feedbackType) => {
     setFeedbackTypes({
       ...feedbackTypes,
@@ -19,11 +22,23 @@ function App() {
     });
   };
 
+  const onReset = () => {
+    setFeedbackTypes({
+      good: 0,
+      bad: 0,
+      neutral: 0,
+    });
+  };
+
   return (
     <div>
       <Description />
-      <Options updateFeedback={updateFeedback} />
-      <Feedback feedbackTypes={feedbackTypes} />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+        onReset={onReset}
+      />
+      <Feedback feedbackTypes={feedbackTypes} totalFeedback={totalFeedback} />
     </div>
   );
 }

@@ -1,11 +1,8 @@
 import App from "../../App";
 
-const Feedback = ({ feedbackTypes }) => {
-  const totalFeedback =
-    feedbackTypes.good + feedbackTypes.neutral + feedbackTypes.bad;
-
+const Feedback = ({ feedbackTypes, totalFeedback }) => {
   if (totalFeedback === 0) {
-    return "No feedback yet";
+    return <div>No feedback yet</div>;
   } else {
     return (
       <div>
