@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import Description from "./components/Description/Description";
+import Notification from "./components/Notification/Notification";
 
 function App() {
   const [feedbackTypes, setFeedbackTypes] = useState(() => {
@@ -52,11 +53,14 @@ function App() {
         totalFeedback={totalFeedback}
         onReset={onReset}
       />
-      <Feedback
-        feedbackTypes={feedbackTypes}
-        totalFeedback={totalFeedback}
-        positive={positive}
-      />
+      {totalFeedback === 0 && <Notification />}
+      {totalFeedback !== 0 && (
+        <Feedback
+          feedbackTypes={feedbackTypes}
+          totalFeedback={totalFeedback}
+          positive={positive}
+        />
+      )}
     </div>
   );
 }
